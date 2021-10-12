@@ -46,7 +46,6 @@ public class albumTest {
 	}
 	
 	@Test
-	@Disabled
 	@DisplayName("Searching for a specific album from the database")
 	public void searchAlbum() throws Exception{
 		Controller controller = new Controller();
@@ -67,7 +66,6 @@ public class albumTest {
 	}
 	
 	@Test
-	@Disabled
 	@DisplayName("Deleting a specific album from the database")
 	public void deleteArtist() throws Exception {
 		Controller controller = new Controller();

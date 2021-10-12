@@ -23,7 +23,7 @@
         
         <mapping class="model.LocalGenre" />
         <mapping class="model.LocalArtist" />
-        <mapping class="model.LocalAlbum" ></mapping>
+        <mapping class="model.LocalAlbum" />
         <mapping class="model.LocalSong" />
     </session-factory>
 </hibernate-configuration>
