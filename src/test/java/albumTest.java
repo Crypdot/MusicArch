@@ -86,11 +86,12 @@ public class albumTest {
 		controller.createAlbum(givenAlbumTitle, 1234, testGenreList, testArtistList, testArtistList);
 		System.out.println("This is the Album we are deleting -> "+rDAO.searchAlbum(givenAlbumTitle).getAlbumName());
 		rDAO.removeAlbum(rDAO.searchAlbum(givenAlbumTitle).getAlbumID());
-		rDAO.removeArtist(rDAO.searchArtist(artistName).getArtistID());
-		rDAO.removeGenre(rDAO.searchGenre(genreName).getGenreID());
 		assertThrows(Exception.class, () -> {
 			rDAO.searchAlbum(givenAlbumTitle).getAlbumName();
 		});
+
+		rDAO.removeArtist(rDAO.searchArtist(artistName).getArtistID());
+		rDAO.removeGenre(rDAO.searchGenre(genreName).getGenreID());
 	}
 
 }
