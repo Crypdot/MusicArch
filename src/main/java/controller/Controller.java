@@ -65,65 +65,47 @@ public class Controller {
     	newAlbum.setAlbumName(albumName);
     	newAlbum.setAlbumYear(albumYear);
     	
-    	Genre[] albumGenres = new Genre[genreListGiven.length];
-    	Artist[] albumArtists = new Artist[artistListGiven.length];
-    	Song[] albumSongs = new Song[songListGiven.length];
     	Genre genre = new Genre();
     	Artist artist = new Artist();
     	List<Artist> linkArtist = new ArrayList<>();
     	List<Genre> linkGenre = new ArrayList<>();
+    	List<Song> linkSong = new ArrayList<>();
+    	
     	if(genreListGiven.length != 0 || artistListGiven.length != 0) {
-    		for(int i = 0; i<albumGenres.length; i++) {
-				try {
-					
+    		for(int i = 0; i<genreListGiven.length; i++) {
+				try {					
 					genre = (Genre) remoteDAO.searchGenre(genreListGiven[i]);
 					if(genre != null) {
 						System.out.println("genreName album "+genre.getGenreName() + " " + genre.getGenreID());
 						linkGenre.add(genre);
 					}
 					System.out.println("toimiiko? controller createAlbum");
-//					newAlbum.addGenre(remoteDAO.searchGenre(genreListGiven[i]));
-//					linkGenre = (Genre) remoteDAO.searchGenre(genreListGiven[i]);
-
-//	        		newAlbum.addGenre(linkGenre);
 				} catch (Exception e) {
 					System.out.println("Failed to add a Genre to Album!");
 					System.out.println(e.getMessage());
 				}
         	}
-    		for(int i = 0; i<albumArtists.length; i++) {
+    		for(int i = 0; i<artistListGiven.length; i++) {
 				try {
 					artist = (Artist) remoteDAO.searchArtist(artistListGiven[i]);
 					if(artist != null) {
 						System.out.println("ArtistID " + artist.getArtistID());
 						linkArtist.add(artist);
 					}
-//					newAlbum.addArtist(linkArtist);
 				} catch (Exception e) {
 					System.out.println("Failed to add an Artist to Album!");
 					e.printStackTrace();
 				}
     			
     		}
-//    		for(int i = 0; i<albumSongs.length; i++) {
-//    			try {
-//					Song linkSongs = (Song) remoteDAO.searchSong(songListGiven[i]);
-//				} catch (Exception e) {
-//					System.out.println("Failed to add a Song to Album!");
-//					e.printStackTrace();
-//				}
-//    		}
-    		try {
     		
-    				Genre gemre = new Genre();
-    				gemre.setGenreName("uusiTestiGenre");
-//    				
-//    				remoteDAO.createAlbum(newAlbum, artist, genre);
-    				remoteDAO.createAlbum(newAlbum, linkArtist, linkGenre);
-//    				remoteDAO.addAlbumGenre(newAlbum, artist, genre);
-//    				remoteDAO.createAlbum(newAlbum, genre, artist);
-//    				System.out.println("Created an Album successfully!");
-    				
+    		for(int i = 0; i<songListGiven.length; i++) {
+					Song song = new Song();
+					song.setSongName(songListGiven[i]);
+					linkSong.add(song);    			
+    		}
+    		try {
+    			remoteDAO.createAlbum(newAlbum, linkArtist, linkGenre, linkSong);	
     			
 			} catch (Exception e) {
 				System.out.println("Failed to create an Album!");
@@ -135,6 +117,7 @@ public class Controller {
     	}
     	
     }
+
     
     //Paikalliseen tietokantaan luominen.
 //    public void createLocalGenre (int GenreID, String genreName) {
@@ -167,7 +150,7 @@ public class Controller {
     
     public void saveGenre(int genreID) {
     	Genre saveGenre = new Genre();
-    	saveGenre = remoteDAO.readGenre(genreID);
+    	saveGenre = remoteDAO.readGenre(genreID); 
     }
     public void saveArtist(int artistID) {
     	Artist saveArtist = new Artist();
@@ -212,7 +195,7 @@ public class Controller {
     	int editID = Integer.parseInt(albumID);
     	editAlbum.setAlbumName(albumName);
     	editAlbum.setAlbumYear(albumYear);
-    	remoteDAO.editAlbum(editAlbum, null, editID);
+    	remoteDAO.editAlbum(editAlbum, editID);
     }
     //Paikallisen tietokannan muokkaus
     public void editLocalGenre(String genreID, String genreName) {
