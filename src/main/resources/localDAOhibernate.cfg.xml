@@ -10,7 +10,7 @@
  
         <!-- Database Connection Settings -->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://10.114.32.15:3306/localmusicarch</property>
+        <property name="hibernate.connection.url">jdbc:mysql://10.114.32.15:3306/LocalMusicArch</property>
         <property name="hibernate.connection.username">olso</property>
         <property name="hibernate.connection.password">olso</property>
  		<property name="show_sql">true</property>
