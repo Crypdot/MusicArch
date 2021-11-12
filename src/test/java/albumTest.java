@@ -42,6 +42,8 @@ public class albumTest {
 		controller.createAlbum(givenAlbumTitle, 1234, testGenreList, testArtistList, testArtistList);
 		assertEquals(givenAlbumTitle, rDAO.searchAlbum(givenAlbumTitle).getAlbumName(), "Expected to find Test Album");	
 		rDAO.removeAlbum(rDAO.searchAlbum(givenAlbumTitle).getAlbumID());
+		rDAO.removeArtist(rDAO.searchArtist(artistName).getArtistID());
+		rDAO.removeGenre(rDAO.searchGenre(genreName).getGenreID());
 	}
 	
 	@Test
@@ -62,11 +64,13 @@ public class albumTest {
 		controller.createAlbum(givenAlbumTitle, 1234, testGenreList, testArtistList, testArtistList);
 		assertEquals(givenAlbumTitle, rDAO.searchAlbum(givenAlbumTitle).getAlbumName(), "Expected to find Test Album");
 		rDAO.removeAlbum(rDAO.searchAlbum(givenAlbumTitle).getAlbumID());
+		rDAO.removeArtist(rDAO.searchArtist(artistName).getArtistID());
+		rDAO.removeGenre(rDAO.searchGenre(genreName).getGenreID());
 	}
 	
 	@Test
 	@DisplayName("Deleting a specific album from the database")
-	public void deleteArtist() throws Exception {
+	public void deleteAlbum() throws Exception {
 		Controller controller = new Controller();
 		
 		controller.createArtist(artistName, artistBio);
@@ -82,6 +86,8 @@ public class albumTest {
 		controller.createAlbum(givenAlbumTitle, 1234, testGenreList, testArtistList, testArtistList);
 		System.out.println("This is the Album we are deleting -> "+rDAO.searchAlbum(givenAlbumTitle).getAlbumName());
 		rDAO.removeAlbum(rDAO.searchAlbum(givenAlbumTitle).getAlbumID());
+		rDAO.removeArtist(rDAO.searchArtist(artistName).getArtistID());
+		rDAO.removeGenre(rDAO.searchGenre(genreName).getGenreID());
 		assertThrows(Exception.class, () -> {
 			rDAO.searchAlbum(givenAlbumTitle).getAlbumName();
 		});
