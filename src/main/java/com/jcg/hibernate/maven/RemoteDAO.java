@@ -181,7 +181,7 @@ public class RemoteDAO {
 		}
 	}
 
-	public boolean createArtist(Artist artist) throws Exception {
+	public boolean createArtist(Artist artist) throws Exception { 
 		Artist[] artistSearch = readArtists();
 		// First loop to check whether a given genre is already found within the
 		// database
