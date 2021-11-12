@@ -12,22 +12,18 @@ import com.jcg.hibernate.maven.RemoteDAO;
 
 public class ArtistCreation {
 	private RemoteDAO rDAO = new RemoteDAO();
-	private String givenArtist1 = "Test Artist";
-
-	private String givenArtist2 = "Test Artist2";
-
-	private String givenArtist3 = "Test Artist3";
+	private String givenArtist = "Test Artist";
 	
 	@Test
 	@DisplayName("Adding an artist into the database")
 	public void createArtist() throws Exception {
 		System.out.println("Adding artist");
 		Artist testArtist = new Artist();
-		testArtist.setArtistName(givenArtist1);
+		testArtist.setArtistName(givenArtist);
 		testArtist.setArtistBio("A test bio");
 		rDAO.createArtist(testArtist);
-		assertEquals(givenArtist1, rDAO.searchArtist(givenArtist1).getArtistName(), "Expected to find Test Artist");
-		rDAO.removeArtist(rDAO.searchArtist(givenArtist1).getArtistID());
+		assertEquals(givenArtist, rDAO.searchArtist(givenArtist).getArtistName(), "Expected to find Test Artist");
+		rDAO.removeArtist(rDAO.searchArtist(givenArtist).getArtistID());
 	}
 	
 	@Test
@@ -35,11 +31,11 @@ public class ArtistCreation {
 	public void searchArtist() throws Exception {
 		System.out.println("Searching artist");
 		Artist testArtist = new Artist();
-		testArtist.setArtistName(givenArtist2);
+		testArtist.setArtistName(givenArtist);
 		testArtist.setArtistBio("A test bio");
 		rDAO.createArtist(testArtist);
-		assertEquals(givenArtist2, rDAO.searchArtist(givenArtist2).getArtistName());
-		rDAO.removeArtist(rDAO.searchArtist(givenArtist2).getArtistID());
+		assertEquals(givenArtist, rDAO.searchArtist(givenArtist).getArtistName());
+		rDAO.removeArtist(rDAO.searchArtist(givenArtist).getArtistID());
 	}
 	
 	@Test
@@ -47,13 +43,13 @@ public class ArtistCreation {
 	public void deleteArtist() throws Exception {
 		System.out.println("Deleting artist");
 		Artist testArtist = new Artist();
-		testArtist.setArtistName(givenArtist3);
+		testArtist.setArtistName(givenArtist);
 		testArtist.setArtistBio("A test bio");
 		rDAO.createArtist(testArtist);
-		System.out.println("This is the artist we are removing -> "+rDAO.searchArtist(givenArtist3).getArtistName());
-		rDAO.removeArtist(rDAO.searchArtist(givenArtist3).getArtistID());
+		System.out.println("This is the artist we are removing -> "+rDAO.searchArtist(givenArtist).getArtistName());
+		rDAO.removeArtist(rDAO.searchArtist(givenArtist).getArtistID());
 		assertThrows(Exception.class, () -> {
-			rDAO.searchArtist(givenArtist3).getArtistName();
+			rDAO.searchArtist(givenArtist).getArtistName();
 		});
 		
 	}
