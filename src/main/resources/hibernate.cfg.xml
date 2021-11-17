@@ -10,7 +10,7 @@
  
         <!-- Database Connection Settings -->
         <property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://10.114.32.15:3306/MusicArch</property>
+        <property name="hibernate.connection.url">jdbc:mysql://10.114.32.15:3306/TestMusicArch</property>
         <property name="hibernate.connection.username">olso</property>
         <property name="hibernate.connection.password">olso</property>
 
