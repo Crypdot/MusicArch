@@ -4,30 +4,26 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ContextMenu?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="500.0" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GUIController">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="500.0" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GUIController">
    <top>
       <ButtonBar fx:id="Buttonbar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="58.0" prefWidth="9000" styleClass="Buttonbar" stylesheets="@../style.css" BorderPane.alignment="CENTER">
         <buttons>
-            <AnchorPane id="root" nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="9000">
+            <AnchorPane id="root" nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="9000.0">
                <children>
-                  <TextField id="TxtFields" fx:id="SearchBox" layoutX="789.0" layoutY="11.0" onKeyTyped="#refreshSearchList" onMouseClicked="#getSearchable" prefHeight="26.0" prefWidth="268.0" AnchorPane.rightAnchor="133.4000000000001">
+                  <Button fx:id="FrontPage" layoutX="35.0" layoutY="16.0" maxWidth="150.0" minHeight="-Infinity" minWidth="100.0" mnemonicParsing="false" onAction="#goFrontPage" text="Etusivu" />
+                  <Button id="root" fx:id="SearchButton" layoutX="1083.0" layoutY="11.0" mnemonicParsing="false" onAction="#SearchTxt" text="Hae" AnchorPane.rightAnchor="52.20000000000009" />
+                  <Button fx:id="UserCollection" layoutX="159.0" layoutY="16.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goUserCollection" prefHeight="26.0" prefWidth="105.0" text="Kokoelma" />
+                  <Button fx:id="Requests" layoutX="289.0" layoutY="16.0" maxWidth="150.0" minHeight="-Infinity" minWidth="100.0" mnemonicParsing="false" onAction="#ShowRequests" text="Lisäyspyynnöt" />
+                <Button fx:id="Help" layoutX="411.0" layoutY="16.0" maxWidth="150.0" minHeight="-Infinity" minWidth="100.0" mnemonicParsing="false" onAction="#GoHelpPage" text="Ohje" />
+                  <TextField fx:id="SearchBox" layoutX="791.0" layoutY="15.0" onKeyTyped="#refreshSearchList" onMouseClicked="#getSearchable" prefHeight="26.0" prefWidth="268.0" AnchorPane.rightAnchor="131.0">
                      <contextMenu>
-                        <ContextMenu fx:id="searchContext">
-                          <items>
-                            <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                          </items>
-                        </ContextMenu>
+                        <ContextMenu fx:id="searchContext" />
                      </contextMenu></TextField>
-                <Button id="root" fx:id="Help" layoutX="376.0" layoutY="11.0" maxWidth="150.0" minHeight="-Infinity" minWidth="100.0" mnemonicParsing="false" onAction="#GoHelpPage" text="Ohje" />
-                  <Button id="root" fx:id="Requests" layoutX="244.0" layoutY="11.0" maxWidth="150.0" minHeight="-Infinity" minWidth="100.0" mnemonicParsing="false" onAction="#ShowRequests" text="Lisäyspyynnöt" />
-                  <Button id="root" fx:id="FrontPage" layoutX="43.0" layoutY="11.0" maxWidth="150.0" minHeight="-Infinity" minWidth="100.0" mnemonicParsing="false" onAction="#goFrontPage" text="Etusivu" />
-                  <Button id="root" fx:id="UserCollection" layoutX="143.0" layoutY="11.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goUserCollection" text="Kokoelma" />
-                  <Button id="root" fx:id="SearchButton" layoutX="1083.0" layoutY="11.0" mnemonicParsing="false" onAction="#goSearchPage" text="Hae" AnchorPane.rightAnchor="52.20000000000009" />
+                  <Button fx:id="SearchButton" layoutX="1081.0" layoutY="16.0" mnemonicParsing="false" onAction="#goSearchPage" prefHeight="26.0" prefWidth="77.0" text="Hae" AnchorPane.rightAnchor="32.0" />
                </children>
             </AnchorPane>
         </buttons>

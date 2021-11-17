@@ -13,8 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import model.LocalAlbum;
-
 @Entity
 @Table(name = "Genre")
 public class LocalGenre {

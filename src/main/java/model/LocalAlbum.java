@@ -13,11 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.jcg.hibernate.maven.Artist;
-import com.jcg.hibernate.maven.Song;
-
-import model.LocalGenre;
-
 @Entity
 @Table(name = ("Album"))
 public class LocalAlbum {

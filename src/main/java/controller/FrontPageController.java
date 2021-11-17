@@ -1,31 +1,28 @@
 package controller;
 
+import java.io.IOException;
 import java.util.List;
-
 import com.jcg.hibernate.maven.Album;
 import com.jcg.hibernate.maven.Artist;
 import com.jcg.hibernate.maven.Genre;
-import com.jcg.hibernate.maven.Song;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
-import model.LocalAlbum;
-import model.LocalArtist;
-import model.LocalGenre;
-import model.LocalSong;
+import view.View;
 
 public class FrontPageController {
 	
 	private Controller controller;
+	private View view;
 	@FXML
 	private ListView<Genre> FrontGenreListView;
 	
@@ -53,7 +50,7 @@ public class FrontPageController {
 	}
 	
 	/**
-	 * This method is for setting up the frontpage views list. 
+	 * This method is for setting up the frontpage list. 
 	 * It also adds eventlisteners to all list items
 	 * **/
 	@FXML
@@ -81,9 +78,34 @@ public class FrontPageController {
 
 			if(genreAlbums.size() > 0) {
 				FrontPageGrid.getChildren().clear();
-				FrontPageGrid.add(new Text(genreAlbums.get(0).getAlbumName()), 1, 0);
+				
+				int counter = 0;
+				for(int i = 0; i < FrontPageGrid.getColumnCount(); i++) {
+					for(int j = 0; j < FrontPageGrid.getRowCount(); j++) {	
+						
+						if(counter >= genreAlbums.size()) {
+							break;
+						}
+						Button button = new Button(genreAlbums.get(counter).getAlbumName());
+						button.setId(String.valueOf(genreAlbums.get(counter).getAlbumID()));
+						button.addEventHandler(EventType.ROOT, (event) -> {
+							if(event.getEventType() == ActionEvent.ACTION) {
+								try {
+									
+									view.showAlbumPage(Integer.valueOf(button.getId()));
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							}
+						});
+						FrontPageGrid.add(button, i, j);
+						counter++;
+					}
+				}
 			} else {
 				System.out.println("Nothing found ");
+				FrontPageGrid.getChildren().clear();
 			}
 			
   
@@ -102,17 +124,36 @@ public class FrontPageController {
 			
 			Artist listArtist = FrontArtistListView.getSelectionModel().getSelectedItem();
 			List<Album> artistAlbums = controller.getArtistAlbums(listArtist.getArtistID());
-			
 			if(artistAlbums.size() > 0) {
 				FrontPageGrid.getChildren().clear();
-				Text text = new Text();
-				text.setText(artistAlbums.get(0).getAlbumName());
-				text.onMouseEnteredProperty().addListener(event -> {
-					System.out.println("You clicked me!");
-				});
-				FrontPageGrid.add(text, 1, 0);
+				
+				int counter = 0;
+				for(int i = 0; i < FrontPageGrid.getColumnCount(); i++) {
+					for(int j = 0; j < FrontPageGrid.getRowCount(); j++) {	
+						
+						if(counter >= artistAlbums.size()) {
+							break;
+						}
+						Button button = new Button(artistAlbums.get(counter).getAlbumName());
+						button.setId(String.valueOf(artistAlbums.get(counter).getAlbumID()));
+						button.addEventHandler(EventType.ROOT, (event) -> {
+							if(event.getEventType() == ActionEvent.ACTION) {
+								try {
+									
+									view.showAlbumPage(Integer.valueOf(button.getId()));
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							}
+						});
+						FrontPageGrid.add(button, i, j);
+						counter++;
+					}
+				}
 			} else {
 				System.out.println("Nothing found ");
+				FrontPageGrid.getChildren().clear();
 			}
 		});
 		

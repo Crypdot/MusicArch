@@ -26,7 +26,7 @@
                <children>
                   <TabPane fx:id="UserTabPane" prefHeight="426.0" prefWidth="510.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <tabs>
-                      <Tab text="Albums">
+                      <Tab text="Albumit">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="415.0" prefWidth="510.0">
                                  <children>
@@ -58,6 +58,11 @@
                                     <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="NEVER" />
                                 </rowConstraints>
                                  <children>
+                                    <Label id="labels" text="Albumin Tiedot" underline="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                                       <GridPane.margin>
+                                          <Insets top="2.0" />
+                                       </GridPane.margin>
+                                    </Label>
                                     <Label fx:id="AlbumNameLabel" text="Albumin nimi" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
                                     <Label fx:id="AlbumArtistLabel" text="Artisti" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                                     <Label fx:id="AlbumGenreLabel" text="Genret" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
@@ -66,27 +71,22 @@
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
                                        <children>
-                                          <Button mnemonicParsing="false" text="Lisää kuvaus" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                                           <Label text="Kuvaus" GridPane.halignment="CENTER" />
+                                          <Button mnemonicParsing="false" text="Lisää kuvaus" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                                        </children>
                                        <rowConstraints>
                                           <RowConstraints />
                                           <RowConstraints />
                                        </rowConstraints>
                                     </GridPane>
-                                    <Label id="labels" text="Albumin Tiedot" underline="true" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-                                       <GridPane.margin>
-                                          <Insets top="2.0" />
-                                       </GridPane.margin>
-                                    </Label>
                                  </children>
                               </GridPane>
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <ListView fx:id="SongListView" layoutX="-3.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="395.0" prefWidth="412.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="31.0" />
                               <Label id="labels" layoutX="167.0" layoutY="1.0" text="Kappaleet" />
+                              <ListView id="listView" fx:id="SongListView" layoutX="-3.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="395.0" prefWidth="412.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="31.0" />
                            </children>
                         </AnchorPane>
                     </items>

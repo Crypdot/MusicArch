@@ -15,9 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.hibernate.mapping.Collection;
 
 
 @Entity
@@ -42,7 +40,7 @@ public class Album {
 			joinColumns={@JoinColumn(name="AlbumID")},
 			inverseJoinColumns={@JoinColumn(name="GenreID")}
 			)
-	private List<Genre> albumGenres;
+	private Set<Genre> albumGenres = new HashSet<Genre>();
 	
 	@ManyToMany(fetch=FetchType.LAZY,
 			cascade={CascadeType.ALL})
@@ -50,7 +48,7 @@ public class Album {
 			name="AlbumArtists",
 			joinColumns={@JoinColumn(name="AlbumID")},
 			inverseJoinColumns={@JoinColumn(name="ArtistID")})
-	private List<Artist> albumArtists;
+	private Set<Artist> albumArtists = new HashSet<Artist>();
 	
 	@ManyToMany(fetch=FetchType.LAZY,
 			cascade= {CascadeType.ALL})
@@ -58,43 +56,50 @@ public class Album {
 			name="AlbumSongs",
 			joinColumns= {@JoinColumn(name="AlbumID")},
 			inverseJoinColumns= {@JoinColumn(name="SongID")})
-	private List<Song> albumSongs;
+	private Set<Song> albumSongs = new HashSet<Song>();
 	
-	public List<Artist> getAlbumArtists(){
+	public Set<Artist> getAlbumArtists(){
+		// Do not remove the print below or you will get:
+		//"failed to lazily initialize a collection of role: com.jcg.hibernate.maven.Album.albumArtists, could not initialize proxy - no Session" in the AlbumPage
+		System.out.println("album artists " + this.albumArtists);
 		return albumArtists;
 	}
-	public void setAlbumArtists(List<Artist> albumArtists) {
+	public void setAlbumArtists(Set<Artist> albumArtists) {
 		this.albumArtists = albumArtists;
 	}
 	public void addArtist(Artist artist) {
 		if(albumArtists == null) {
-			albumArtists = new ArrayList<>();
+			albumArtists = new HashSet<Artist>();
 		}
 		albumArtists.add(artist);
 	}	
-	public List<Genre> getAlbumGenres(){
+	public Set<Genre> getAlbumGenres(){
+		// Do not remove the print below or you will get:
+		//"failed to lazily initialize a collection of role: com.jcg.hibernate.maven.Album.albumGenres, could not initialize proxy - no Session" in the AlbumPage
+		System.out.println("album genres " + this.albumGenres);
 		return albumGenres;
 	}
-	public void setAlbumGenres(List<Genre> albumGenres) {
+	public void setAlbumGenres(Set<Genre> albumGenres) {
 		this.albumGenres = albumGenres;
 	}
 	public void addGenre(Genre genre) {
 		System.out.println("genre = " + genre.getGenreName());
 		if(albumGenres == null) {
-			albumGenres = new ArrayList<>();
+			albumGenres = new HashSet<Genre>();
 		}
 		albumGenres.add(genre);
 	}
-	public void setAlbumSongs(List<Song> albumSongs) {
+	public void setAlbumSongs(Set<Song> albumSongs) {
 		this.albumSongs = albumSongs;
 	}
 	public void addSong(Song song) {
 		if(albumSongs == null) {
-			albumSongs = new ArrayList<>();
+			albumSongs = new HashSet<>();
 		}
 		albumSongs.add(song);
 	}
-	public List<Song> getAlbumSongs() {
+	public Set<Song> getAlbumSongs() {
+		System.out.println("album songs " + this.albumSongs);
 		return albumSongs;
 	}
 	public Album() {}

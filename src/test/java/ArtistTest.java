@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Assertions;
 import com.jcg.hibernate.maven.Artist;
 import com.jcg.hibernate.maven.RemoteDAO;
 
-public class ArtistCreation {
-	private RemoteDAO rDAO = new RemoteDAO();
+public class ArtistTest {
+	private RemoteDAO rDAO = RemoteDAO.getInstance();
 	private String givenArtist = "Test Artist";
 	
 	@Test
