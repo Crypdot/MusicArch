@@ -13,10 +13,13 @@ import org.junit.jupiter.api.Test;
 import com.jcg.hibernate.maven.Genre;
 import com.jcg.hibernate.maven.RemoteDAO;
 
+import controller.Controller;
+
 
 public class GenreTest {
 
 	private RemoteDAO rDAO = RemoteDAO.getInstance();
+	private Controller controller = new Controller();
 	private String givenGenre = "TestGenre";
 	
 	@BeforeEach
