@@ -38,6 +38,13 @@
 					<release>11</release>
 				</configuration>
 			</plugin>
+			
+			
+		<plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+            </plugin>
 		
 		</plugins>
 	</build>
@@ -71,18 +78,15 @@
 			<version>5.7.2</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.7.2</version>
-			<scope>test</scope>
-		</dependency>
+		
+		
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.5.7.Final</version>
 		</dependency>
+		
 
 		<dependency>
 			<groupId>mysql</groupId>
