@@ -1,0 +1,49 @@
+Tervetuloa käyttämään MusicArch sovellusta!
+
+MusicArch on virtuaalinen musiikkikirjasto, 
+jonka avulla voit luoda
+itsellesi albumikokoelman ja etsiä tietoa haluamastasi
+musiikista.
+
+Voit lisätä kokoelmaasi albumeita MusicArchin etusivulta tai etsiä niitä
+sovelluksen hakutoiminnolla.
+
+Sovelluksen ylläpito vastaa siellä olevasta tiedosta, eli
+jos jotain genreä, artistia tai albumia ei löydy, voit lähettää
+ylläpidolle lisäyspyynnön, jonka avulla se voidaan lisätä.
+
+
+
+Sovelluksen käyttöohjeet
+
+Yleisesti:
+Kun käynnistät sovelluksen päädyt etusivulle, 
+missä voit tarkastella genrejä ja artisteja 
+sekä näihin molempiin kuuluvia albumeita. 
+Yläpalkista pääset käsiksi sovelluksen kokoelma-ikkunaan, 
+josta voit tarkastella omassa kokoelmassasi olevia albumeita. 
+
+
+Ylläpitäjälle:
+
+Ylläpitäjänä voit lisätä Lisäyspyynnöt-ikkunassa 
+genrejä, artisteja ja albumeita sovellukseen.
+
+Genren lisääminen sovellukseen
+Klikkaa genrepyyntö palkin plus-nappia.
+Kirjoita genren nimi kenttään ja paina Lähetä-nappia.
+Vahvista pyynnön lähetys.
+
+Artistin lisääminen sovellukseen
+Klikkaa artistipyyntö palkin plus-nappia. 
+Kirjoita artistin nimi kenttään ja paina Lähetä-nappia.
+Vahvista pyynnön lähetys.
+
+ 
+Albumin lisääminen sovellukseen
+Klikkaa albumipyyntö-palkin plus-painiketta.
+Kirjoita albumin nimi ja julkaisuvuosi niille kuuluviin kenttiin.
+Kirjoita albumille artistin ja genren nimi
+(jos artisteja tai genrejä on useampia, niitä voidaan lisätä useampi).
+Paina lähetä-nappia.
+Vahvista pyynnön lähetys

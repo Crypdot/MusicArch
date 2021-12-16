@@ -1,0 +1,130 @@
+
+/*Elementeistä on tehty ryhmiä, joita voidaan muokata täällä. */
+/*Uudet elementtiryhmät voidaan luoda SB:ssä */
+/*Osalla eri Stagejen elementtiryhmistä voi olla sama ID sillä 
+ * niitä voi paremmin ohjata yhdessä näin
+ */
+
+/*Päänäkymän elementtejä */
+#root {
+-fx-background-color: #404040;
+-fx-text-fill: orange;
+-fx-accent: red;
+-fx-focus-color: orange;
+-fx-faint-focus-color: orange;
+}
+
+.root {
+-fx-accent: orange;
+-fx-focus-color: orange;
+}
+
+#Buttonbarbuttons {
+-fx-text-fill: orange;
+-fx-faint-focus-color: orange;
+-fx-focus-color:orange;
+}
+
+#Buttonbarbuttons:focused {
+-fx-faint-focus-color: orange;
+-fx-focus-color:orange; 
+}
+
+/*Requests.fxml elements */
+#RequestDrops {
+-fx-background-color: #404040;
+-fx-text-fill: orange;
+}
+
+.text-area {
+-fx-border-color: #404040;
+-fx-border-radius:1.0%;	
+}
+
+/* All textfields*/
+.text-field {
+-fx-border-color: #404040;
+-fx-border-radius:1.0%;
+}
+
+.text-field:focused {
+-fx-focus-color: orange;
+-fx-faint-focus-color: orange;
+}
+
+.text-area:focused {
+	-fx-focus-color: orange;
+-fx-faint-focus-color: orange;
+}
+
+.button {
+-fx-text-fill: orange;
+-fx-background-color: #404040;
+-fx-border-radius:5.0%;	
+-fx-font-weight:bold;	
+}
+
+.button:focused {
+-fx-faint-focus-color: orange;
+-fx-focus-color: orange;
+-fx-border-color: -fx-faint-focus-color; 
+}
+
+.scroll-pane {
+-fx-border-color: #404040;
+}
+
+.scroll-pane.decrement-button {
+-fx-background-color: white;
+}
+
+.thumb {
+-fx-background-color: #F0F0F0	;
+}
+
+.decrement-arrow {
+-fx-background-color: #F0F0F0	;	
+}
+
+.increment-arrow {
+-fx-background-color: #F0F0F0	;
+}
+
+.scroll-bar:vertical {
+-fx-background-color: #404040	;	
+}
+
+#root2 {
+-fx-text-fill: orange;
+-fx-body-color: #404040;
+}
+
+Text {
+-fx-text-fill: orange;
+}
+
+#listView {
+-fx-font-size: 1.5em;
+}
+
+#scroll{
+-fx-background-color: white;
+}
+
+/*Errors and notifications */
+.dialog-pane {
+-fx-accent: red;
+-fx-background-color: #404040;
+-fx-focus-color: orange;
+-fx-faint-focus-color: orange;
+}
+
+.dialog-pane  .button{
+-fx-background-color: #404040;
+-fx-text-fill: orange;
+}
+
+.dialog-pane .button:hover{     
+-fx-background-color:orange;
+
+ }

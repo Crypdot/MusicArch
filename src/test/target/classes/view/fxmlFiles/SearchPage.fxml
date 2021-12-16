@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="344.0" prefWidth="592.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchController">
+   <children>
+      <Label fx:id="SearchLabel" alignment="CENTER" layoutX="-8.0" prefHeight="50.0" prefWidth="592.0" text="Haun tulokset" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="0.0" />
+      <GridPane fx:id="SearchGrid" alignment="CENTER" layoutX="-3.0" layoutY="92.0" prefHeight="251.0" prefWidth="581.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="13.399999999999977" AnchorPane.topAnchor="92.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="543.2000122070312" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="86.20001220703125" minHeight="2.0" prefHeight="86.20001220703125" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="172.0" minHeight="10.0" prefHeight="90.39996337890625" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="75.20003662109374" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>
