@@ -30,7 +30,7 @@ import javafx.stage.StageStyle;
 import model.Language;
 
 /**
- * 
+ * View displays data 
  * @author Jemila, Jani
  *
  */
@@ -69,7 +69,9 @@ public class View extends Application {
 		
 	}
 	
-	// Places the rootLayout.fxml file on top of the primaryStage
+	/*
+	 * Places the rootLayout.fxml file on top of the primaryStage
+	 */
 	public void showHome() throws IOException {
 		// Load root layout from fxml file.
 		FXMLLoader loader = new FXMLLoader();
@@ -89,7 +91,9 @@ public class View extends Application {
 
 	}
 
-	// FrontPage.fxml is placed in the center of rootLayout- BorderPane
+	/*
+	 * FrontPage.fxml is placed in the center of rootLayout- BorderPane
+	 */
 	public static void showFrontPage() throws IOException {
 
 		FXMLLoader loader = new FXMLLoader();
@@ -106,8 +110,11 @@ public class View extends Application {
 		rootLayout.setCenter(Frontpage);
 
 	}
-	//showHelpPage.fxml contains software instructions.
-	//showHelpPage.fxml is placed in the center of rootLayout- BorderPane
+
+	/*
+	 * showHelpPage.fxml contains software instructions.
+	 * showHelpPage.fxml is placed in the center of rootLayout- BorderPane
+	 */
 	public static void showHelpPage() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(View.class.getResource("/view/fxmlFiles/helpPage.fxml"));
@@ -117,8 +124,12 @@ public class View extends Application {
 		rootLayout.setCenter(Frontpage);
 
 	}
-	//The search results are set on the SearchPage.fxml. 
-	//showHelpPage.fxml is placed in the center of rootLayout- BorderPane
+
+
+	/*
+	 * The search results are set on the SearchPage.fxml. 
+	 * showHelpPage.fxml is placed in the center of rootLayout- BorderPane
+	 */
 	public static void showSearchPage(String searchText) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(View.class.getResource("/view/fxmlFiles/SearchPage.fxml"));
@@ -127,8 +138,11 @@ public class View extends Application {
 		AnchorPane Frontpage = (AnchorPane) loader.load();
 		rootLayout.setCenter(Frontpage);
 	}
-	//showAlbumPage method gets id from frontPageController
-	//showAlbumPage.fxml is placed in the center of rootLayout- BorderPane
+	
+	/*
+	 * showAlbumPage method gets id from frontPageController
+	 * showAlbumPage.fxml is placed in the center of rootLayout- BorderPane
+	 */
 	public static void showAlbumPage(int id) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(View.class.getResource("/view/fxmlFiles/AlbumPage.fxml"));
@@ -138,7 +152,10 @@ public class View extends Application {
 		rootLayout.setCenter(Frontpage);
 	}
 
-	//UserCollection.fxml is placed in the center of userRoot- AnchorPane
+	
+	/*
+	 * UserCollection.fxml is placed in the center of userRoot- AnchorPane
+	 */
 	public static void showUserCollectionPage() throws IOException {
 		System.out.println("User collection!!!");
 		List<Window> windows = Window.getWindows();
@@ -165,8 +182,11 @@ public class View extends Application {
 		}
 	}
 
-	// -------------------Requests stage---------------------------------
-	//Requests.fxml is placed in the center of anotherRoot- BorderPane
+	//Requests stage
+	
+	/*
+	 * Requests.fxml is placed in the center of anotherRoot- BorderPane
+	 */
 	public static void showRequestsWindow() throws IOException {
 		System.out.print(" !!!    täällä ollaan    !!!");
 			
@@ -203,8 +223,11 @@ public class View extends Application {
 
 	}
 
-	//showGenreForm, showAlbumForm and showArtistForm changes the 
-	//form in the requests.fxml file.
+
+	/*
+	 * showGenreForm, showAlbumForm and showArtistForm changes the 
+	 * form in the requests.fxml file.
+	 */
 	public static void showGenreForm() throws IOException {
 
 		FXMLLoader loader = new FXMLLoader();
@@ -233,8 +256,11 @@ public class View extends Application {
 		anotherRoot.setCenter(artist);
 	}
 	
+	/*
+	 *UserCollection.fxml is placed in the center of anotherRoot- BorderPane
+	 * 
+	 */
 	public static void refreshUserCollection() throws IOException {
-		
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setLocation(View.class.getResource("/view/fxmlFiles/UserCollection.fxml"));
 		fxmlLoader.setResources(Language.getInstance().getBundle());
@@ -250,40 +276,8 @@ public class View extends Application {
 		stage2.setScene(scene);
 		stage2.show();
 	}
-
-	public static void showError() throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(View.class.getResource("/view/fxmlFiles/Error.fxml"));
-		test = (AnchorPane) fxmlLoader.load();
-		Scene error = new Scene(test);
-		error.getStylesheets().add("/view/style.css");
-		Stage stage = new Stage();
-		stage.setTitle("Error Window");
-		stage.setScene(error);
-		stage.show();
-	}
-	public static void showConf() throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(View.class.getResource("/view/fxmlFiles/conf.fxml"));
-		dialog = (DialogPane) fxmlLoader.load();
-		Scene error = new Scene(dialog);
-		error.getStylesheets().add("/view/style.css");
-		Stage stage = new Stage();
-		stage.setTitle("Error Window");
-		stage.setScene(error);
-		stage.show();
-	}
-	//Requestform for peruskäyttäjä
-	public void showRequestForm(String searchText) throws IOException {
-		// TODO Auto-generated method stub
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(View.class.getResource("/view/fxmlFiles/requestForm.fxml"));
-		loader.setControllerFactory(SearchController -> new SearchController(searchText, controller));
-		AnchorPane joku = (AnchorPane) loader.load();
-		searchPage.getChildren().addAll(joku);
-
-	}
-
+		
+	
 	public Stage getPrimaryStage() {
 		return primaryStage;
 	}
