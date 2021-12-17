@@ -1,5 +1,6 @@
 package view;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
@@ -28,6 +29,8 @@ import javafx.stage.Stage;
 
 import javafx.stage.StageStyle;
 import model.Language;
+import main.Main;
+
 
 
 
@@ -42,6 +45,7 @@ public class View extends Application {
 	private static AnchorPane test;
 	private static DialogPane dialog;
 	private static AnchorPane searchPage;
+	private static Properties properties;
 
     private static GridPane SearchGrid;
 
@@ -53,7 +57,10 @@ public class View extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		
+//		File jarPath=new File(View.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+//		 String propertiesPath=jarPath.getParent();
+//	     System.out.println(" propertiesPath-"+propertiesPath);
+//	     properties.load(new FileInputStream("src/main/resources/MusicArch.properties"));
 		View.primaryStage = primaryStage;
 		View.primaryStage.setTitle("M U S I C A R C H");
 		View.primaryStage.initStyle(StageStyle.DECORATED);

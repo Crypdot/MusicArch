@@ -1,13 +1,18 @@
 package com.jcg.hibernate.maven;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 
 import javax.persistence.criteria.CriteriaBuilder;
 
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
+
+import main.Main;
 
 
 public class RemoteDAO {
@@ -24,6 +29,11 @@ public class RemoteDAO {
 	
 	private RemoteDAO() {
 		try {
+			File jarPath=new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+			 String propertiesPath=jarPath.getParent();
+//		     System.out.println(" propertiesPath-"+propertiesPath);
+//		     Properties properties = new Properties();
+//		     properties.load(new FileInputStream(propertiesPath+"/hibernate.cfg.xml"));
 			sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 		} catch (Exception e) {
 			System.err.println("Istuntotehtaan luonti ei onnistunut: " + e.getMessage());
@@ -675,6 +685,7 @@ public class RemoteDAO {
 			String sql = "select ArtistName from Artist union select AlbumName from Album union select GenreName from Genre union select SongName from Song";
 			SQLQuery query = session.createSQLQuery(sql);
 			List<String> results = query.list();
+
 			transAct.commit();
 			//session.close();
 			return results;

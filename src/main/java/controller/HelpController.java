@@ -54,7 +54,7 @@ public class HelpController {
 	String helpLanguage = new String();
 	
 	try {
-		properties.load(new FileInputStream("src/main/resources/help.properties"));
+		properties.load(new FileInputStream("help.properties"));
 		helpLanguage = properties.getProperty(Locale.getDefault().toString());
 	} catch (FileNotFoundException e1) {
 		e1.printStackTrace();
@@ -63,8 +63,7 @@ public class HelpController {
 		e1.printStackTrace();
 	}
 	char[] buffer = null;
-	
-	File file = new File("src/main/resources/" + helpLanguage );
+	File file = new File(helpLanguage);
 	try(FileReader reader = new FileReader(file)){
 		buffer = new char[(int) file.length()];
 		reader.read(buffer);

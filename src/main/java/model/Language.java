@@ -1,14 +1,15 @@
 package model;
 
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.StringWriter;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
+
+
+import main.Main;
 
 /**
  * Purpose of this class is to set the language of the application
@@ -33,7 +34,16 @@ public class Language {
 	private Language() {
 
 		try {
-			FileInputStream configStream = new FileInputStream("src/main/resources/MusicArch.properties");
+			String current = System.getProperty("user.dir");
+			System.out.println("Current working directory in Java : " + current);
+			File jarPath=new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+			String propertiesPath=jarPath.getParent();
+			System.out.println(" propertiesPath-"+propertiesPath+"/MusicArch.properties");
+//		    properties.load(new FileInputStream(propertiesPath+"/MusicArch.properties"));
+			FileInputStream configStream = new FileInputStream("MusicArch.properties");
+
+//			FileInputStream configStream = new FileInputStream(propertiesPath+"\\classes\\MusicArch.properties");
+			System.out.println("Streaming all\n " +configStream.read());
 			properties.load(configStream);
 			configStream.close();
 			
