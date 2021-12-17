@@ -43,7 +43,7 @@ import model.LocalGenre;
 import view.View;
 
 /**
- * This controller displays request forms and user requests. Froms are used to
+ * This controller displays request forms and user requests. Forms are used to
  * create new genres, artists and albums and show and delete user requests.
  * 
  * @author Jemila
@@ -94,10 +94,6 @@ public class RequestFormsController {
 	@FXML
 	private Button SearchButton;
 
-	/*
-	 * private Genre genreResults; private Artist artistResults; private Album
-	 * albumResults; private Song songResults;
-	 */
 	List<String> genresFound;
 	List<String> artistsFound;
 	List<String> albumsFound;
@@ -234,7 +230,6 @@ public class RequestFormsController {
 		}
 	}
 
-	// Search existing artists
 	/**
 	 * refreshArtistSearchList-method is triggered by keypresses in the search-bar.
 	 * Each time a new key is pressed, the method will compare the user's input
@@ -333,7 +328,7 @@ public class RequestFormsController {
 		for (int i = 0; i < menuCounter; i++) {
 			String testString = strippedList.get(i);
 			MenuItem searchItem = new MenuItem(testString);
-			// Make selected item genretag
+			// Make selected item genretag (button)
 			searchItem.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent t) {
@@ -417,7 +412,7 @@ public class RequestFormsController {
 		for (int i = 0; i < menuCounter; i++) {
 			String testString = strippedList.get(i);
 			MenuItem searchItem = new MenuItem(testString);
-			// Make selected item artisttag
+			// Make selected item artist tag (button)
 			searchItem.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent t) {
@@ -648,23 +643,5 @@ public class RequestFormsController {
 		}
 
 	}
-	// ----Search results from controller------
-	/*
-	 * public void setGenreResults(Genre genre) { this.genreResults = genre; }
-	 * 
-	 * public Genre getGenreResults() { return genreResults; }
-	 * 
-	 * public void setArtistResults(Artist artistResults) { this.artistResults =
-	 * artistResults; }
-	 * 
-	 * public Artist getArtistResults() { return artistResults; }
-	 * 
-	 * public void setAlbumResults(Album album) { this.albumResults = album; }
-	 * 
-	 * public Album getAlbumResults() { return albumResults; }
-	 * 
-	 * public void setSongResults(Song song) { this.songResults = song; }
-	 * 
-	 * public Song getSongResults() { return songResults; }
-	 */
+
 }
